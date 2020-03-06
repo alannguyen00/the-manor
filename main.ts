@@ -43,11 +43,19 @@ e e e e e e e e e e e e e e e e
 e e e e e e e e e e e e e f e e 
 `
 }
+function beginning_credits () {
+    game.splash("You have been brought back to the past.  ")
+    game.splash("Navigate your way through 4 levels and escape back to the present! ")
+    game.splash("Use W to move up, S to move down, and A and D to move Left and Right. ")
+    game.splash("Beware, you're nt the only one here.")
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     kay_3.destroy()
 })
 function bad_guy () {
+    // This creates the villlan and spawns him in specific
+    // position.
     Villan = sprites.create(img`
 . . . . . . 1 1 1 1 1 1 1 . . . . 
 . . . . . . 1 f f 1 f f 1 . . . . 
@@ -93,7 +101,7 @@ function main_character () {
 . . . . f f f . f f f . . . . . . 
 `, SpriteKind.Player)
     // This moves my sprite
-    controller.moveSprite(Carlos, 200, 200)
+    controller.moveSprite(Carlos, 70, 70)
     // This set's my sprite's postion/spawn point
     Carlos.setPosition(400, 750)
     Carlos.setKind(SpriteKind.Player)
@@ -101,6 +109,7 @@ function main_character () {
     scene.cameraFollowSprite(Carlos)
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    // This organizes the amount of animations
     animation.runImageAnimation(
     Carlos,
     [img`
@@ -291,6 +300,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key2, function (sprite, otherSpr
     kays_2.destroy()
 })
 function background () {
+    // This creates the whole map.
     scene.setTileMap(img`
 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b f 
@@ -361,6 +371,8 @@ b b b b b b b b b b b b b b b b
 b b b b b b b b b b b b b b b b 
 b b b b b b b b b b b b b b b b 
 `, true)
+    // This will add a specific design to the colored
+    // coded block.
     scene.setTile(14, img`
 e f e e e e e e e e e e e e e e 
 e e e e e e e e e e e f e e e e 
@@ -388,6 +400,8 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
     main_character()
     Villan.follow(Carlos)
 })
+// This creates the 3 keys and positions them in 3
+// specific places.
 function key_1 () {
     kays = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -413,6 +427,8 @@ function key_1 () {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key, function (sprite, otherSprite) {
     info.changeScoreBy(1)
+    // This will delete the key as the character has
+    // collected them.
     kays.destroy()
 })
 function key_2 () {
@@ -439,6 +455,8 @@ function key_2 () {
     kays_2.setKind(SpriteKind.key2)
 }
 function Key_unlocks () {
+    // If the score is 3, the wall that was locked
+    // previously is now walk-able
     if (info.score() == 3) {
         scene.setTile(3, img`
 b b b b b b b b b b b b b b b b 
@@ -787,6 +805,7 @@ let kays_2: Sprite = null
 let Carlos: Sprite = null
 let Villan: Sprite = null
 let kay_3: Sprite = null
+beginning_credits()
 main_character()
 background()
 // This will call the functions that I create
@@ -794,11 +813,14 @@ bad_guy()
 key_1()
 key_2()
 key_3()
+// This sets the score to 0
 info.setScore(0)
+// This starts the user's lives as 5
 info.setLife(5)
 game.onUpdate(function () {
     Key_unlocks()
 })
 forever(function () {
+    // This will play the background music forever.
     music.playMelody("E B C5 A B G A F ", 120)
 })

@@ -6,7 +6,8 @@
         "controller": "*",
         "darts": "*",
         "color-coded-tilemap": "*",
-        "animation": "*"
+        "animation": "*",
+        "storyboard": "*"
     },
     "files": [
         "main.blocks",
