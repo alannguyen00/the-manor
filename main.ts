@@ -2,6 +2,7 @@ namespace SpriteKind {
     export const key = SpriteKind.create()
     export const key2 = SpriteKind.create()
     export const key3 = SpriteKind.create()
+    export const portal = SpriteKind.create()
 }
 namespace myTiles {
     //% blockIdentity=images._tile
@@ -45,9 +46,89 @@ e e e e e e e e e e e e e f e e
 }
 function beginning_credits () {
     game.splash("You have been brought back to the past.  ")
-    game.splash("Navigate your way through 4 levels and escape back to the present! ")
+    game.splash("Navigate your way through 4 levels for the 12 keys and escape back to the present! ")
     game.splash("Use W to move up, S to move down, and A and D to move Left and Right. ")
     game.splash("Beware, you're nt the only one here.")
+}
+function Portal () {
+    portall = sprites.create(img`
+. . . . f f f f f f f f f f f f f . . . 
+. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 3 3 3 3 3 1 1 1 f . . . 
+. . . . f 1 1 1 3 1 1 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 3 1 1 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 1 1 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 1 3 3 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 3 3 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 3 3 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 1 3 3 3 3 1 1 f . . . 
+. . . . f 1 1 3 1 1 1 3 3 1 1 1 f . . . 
+. . . . f 1 1 1 3 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 3 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 3 3 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 3 3 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 3 3 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 1 3 3 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
+`, SpriteKind.portal)
+    portall.setPosition(175, 300)
+}
+function lEvel_2 () {
+    // This creates the whole map.
+    scene.setTileMap(img`
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f 1 1 1 1 1 1 1 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f 1 f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f 1 f f 1 f f f 1 1 1 1 f f 1 1 1 1 f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f 1 f f 1 f f f 1 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f 
+f f 1 1 1 1 1 1 1 1 1 1 1 1 f f 1 1 1 1 1 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 1 1 1 1 1 1 1 f f 1 1 1 1 1 1 1 1 1 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f 1 f f 1 f f f f f f f 1 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f 1 f f f f f f f f f f 1 1 1 1 f f 1 1 1 1 f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+`)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     info.changeScoreBy(1)
@@ -101,7 +182,7 @@ function main_character () {
 . . . . f f f . f f f . . . . . . 
 `, SpriteKind.Player)
     // This moves my sprite
-    controller.moveSprite(Carlos, 70, 70)
+    controller.moveSprite(Carlos, 200, 200)
     // This set's my sprite's postion/spawn point
     Carlos.setPosition(400, 750)
     Carlos.setKind(SpriteKind.Player)
@@ -299,6 +380,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key2, function (sprite, otherSpr
     info.changeScoreBy(1)
     kays_2.destroy()
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.portal, function (sprite, otherSprite) {
+    level += 1
+})
 function background () {
     // This creates the whole map.
     scene.setTileMap(img`
@@ -400,8 +484,8 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
     main_character()
     Villan.follow(Carlos)
 })
-// This creates the 3 keys and positions them in 3
-// specific places.
+// This function creates the 1/3 keys and positions
+// them in 3 specific places.
 function key_1 () {
     kays = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -805,6 +889,7 @@ let kays_2: Sprite = null
 let Carlos: Sprite = null
 let Villan: Sprite = null
 let kay_3: Sprite = null
+let portall: Sprite = null
 beginning_credits()
 main_character()
 background()
@@ -817,6 +902,13 @@ key_3()
 info.setScore(0)
 // This starts the user's lives as 5
 info.setLife(5)
+let level = 1
+Portal()
+game.onUpdate(function () {
+    if (level == 2) {
+        lEvel_2()
+    }
+})
 game.onUpdate(function () {
     Key_unlocks()
 })
