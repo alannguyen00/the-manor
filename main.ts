@@ -50,86 +50,6 @@ function beginning_credits () {
     game.splash("Use W to move up, S to move down, and A and D to move Left and Right. ")
     game.splash("Beware, you're nt the only one here.")
 }
-function Portal () {
-    portall = sprites.create(img`
-. . . . f f f f f f f f f f f f f . . . 
-. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
-. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
-. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
-. . . . f 1 1 1 3 3 3 3 3 1 1 1 f . . . 
-. . . . f 1 1 1 3 1 1 1 1 3 1 1 f . . . 
-. . . . f 1 1 3 3 1 1 1 1 3 1 1 f . . . 
-. . . . f 1 1 3 1 1 1 1 1 3 1 1 f . . . 
-. . . . f 1 1 3 1 1 3 3 1 3 1 1 f . . . 
-. . . . f 1 1 3 1 3 3 1 1 3 1 1 f . . . 
-. . . . f 1 1 3 1 3 3 1 1 3 1 1 f . . . 
-. . . . f 1 1 3 1 1 3 3 3 3 1 1 f . . . 
-. . . . f 1 1 3 1 1 1 3 3 1 1 1 f . . . 
-. . . . f 1 1 1 3 1 1 1 1 1 1 1 f . . . 
-. . . . f 1 1 1 3 1 1 1 1 1 1 1 f . . . 
-. . . . f 1 1 1 3 3 1 1 1 1 1 1 f . . . 
-. . . . f 1 1 1 1 3 3 1 1 1 1 1 f . . . 
-. . . . f 1 1 1 1 1 3 3 1 1 1 1 f . . . 
-. . . . f 1 1 1 1 1 1 3 3 1 1 1 f . . . 
-. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
-`, SpriteKind.portal)
-    portall.setPosition(175, 300)
-}
-function lEvel_2 () {
-    // This creates the whole map.
-    scene.setTileMap(img`
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f 1 1 1 1 1 1 1 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f 1 f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f 1 f f 1 f f f 1 1 1 1 f f 1 1 1 1 f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f 1 f f 1 f f f 1 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f 
-f f 1 1 1 1 1 1 1 1 1 1 1 1 f f 1 1 1 1 1 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 1 1 1 1 1 1 1 f f 1 1 1 1 1 1 1 1 1 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f 1 f f 1 f f f f f f f 1 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f 1 f f f f f f f f f f 1 1 1 1 f f 1 1 1 1 f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-`)
-}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     kay_3.destroy()
@@ -482,7 +402,7 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
     info.changeLifeBy(-1)
     Carlos.destroy()
     main_character()
-    Villan.follow(Carlos)
+    Villan.follow(Carlos, 100)
 })
 // This function creates the 1/3 keys and positions
 // them in 3 specific places.
@@ -515,6 +435,61 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key, function (sprite, otherSpri
     // collected them.
     kays.destroy()
 })
+function lEvel_2 () {
+    // This creates the whole map.
+    scene.setTileMap(img`
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f 1 1 1 f f 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 1 1 1 1 f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 1 1 1 f f 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+`)
+}
 function key_2 () {
     kays_2 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -762,6 +737,31 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function Portal () {
+    portall = sprites.create(img`
+. . . . f f f f f f f f f f f f f . . . 
+. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 3 3 3 3 3 1 1 1 f . . . 
+. . . . f 1 1 1 3 1 1 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 3 1 1 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 1 1 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 1 3 3 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 3 3 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 3 3 1 1 3 1 1 f . . . 
+. . . . f 1 1 3 1 1 3 3 3 3 1 1 f . . . 
+. . . . f 1 1 3 1 1 1 3 3 1 1 1 f . . . 
+. . . . f 1 1 1 3 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 3 1 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 3 3 1 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 3 3 1 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 3 3 1 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 1 3 3 1 1 1 f . . . 
+. . . . f 1 1 1 1 1 1 1 1 1 1 1 f . . . 
+`, SpriteKind.portal)
+    portall.setPosition(175, 300)
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     Carlos,
@@ -884,12 +884,12 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+let portall: Sprite = null
 let kays: Sprite = null
 let kays_2: Sprite = null
 let Carlos: Sprite = null
 let Villan: Sprite = null
 let kay_3: Sprite = null
-let portall: Sprite = null
 beginning_credits()
 main_character()
 background()
