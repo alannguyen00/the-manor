@@ -47,7 +47,7 @@ e e e e e e e e e e e e e f e e
 function beginning_credits () {
     game.splash("You have been brought back to the past.  ")
     game.splash("Navigate your way through 4 levels for the 12 keys and escape back to the present! ")
-    game.splash("Use W to move up, S to move down, and A and D to move Left and Right. ")
+    game.splash("Use ^ to move up, S to move down, and < and > to move Left and Right. ")
     game.splash("Beware, you're nt the only one here.")
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.key3, function (sprite, otherSprite) {
@@ -102,7 +102,7 @@ function main_character () {
 . . . . f f f . f f f . . . . . . 
 `, SpriteKind.Player)
     // This moves my sprite
-    controller.moveSprite(Carlos, 200, 200)
+    controller.moveSprite(Carlos, 70, 70)
     // This set's my sprite's postion/spawn point
     Carlos.setPosition(400, 750)
     Carlos.setKind(SpriteKind.Player)
@@ -440,55 +440,73 @@ function lEvel_2 () {
     scene.setTileMap(img`
 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 1 1 1 1 1 1 f f 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 1 1 1 1 1 1 f f 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f f f f f f 1 1 1 f f 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 1 1 1 1 f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f 1 1 1 1 f f 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f 1 f f f f f f 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 1 1 1 f f f 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f f 1 f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f f 1 f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 f f f f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f 1 1 1 1 1 1 1 1 1 1 1 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f f f f f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f f f f f f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f 1 1 1 1 f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f 1 f f 1 f f f f f f f f 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 f f 1 f 1 f f 1 1 1 1 1 1 1 1 1 1 f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f 1 1 1 1 f 1 f f f f f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f 1 f f f f f f f f f f f f f f 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
+f f f f f f f 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 `)
+    scene.setTile(1, img`
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+1 1 1 f f f 1 1 1 f f f 1 1 1 f 
+1 1 1 f f f 1 1 1 f f f 1 1 1 f 
+1 1 1 f f f 1 1 1 f f f 1 1 1 f 
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+1 1 1 f f f 1 1 1 f f f 1 1 1 f 
+1 1 1 f f f 1 1 1 f f f 1 1 1 f 
+1 1 1 f f f 1 1 1 f f f 1 1 1 f 
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+f f f 1 1 1 f f f 1 1 1 f f f 1 
+1 1 1 f f f 1 1 1 f f f 1 1 1 f 
+`, true)
 }
 function key_2 () {
     kays_2 = sprites.create(img`
